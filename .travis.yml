@@ -9,14 +9,14 @@ script:
   - docker run adwankar/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t adwankar/multi-client ./client
-  - docker build -t adwankar/multi-nginx ./nginx
-  - docker build -t adwankar/multi-server ./server
-  - docker build -t adwankar/multi-worker ./worker
+  - docker build -t dockeradwankar/multi-client ./client
+  - docker build -t dockeradwankar/multi-nginx ./nginx
+  - docker build -t dockeradwankar/multi-server ./server
+  - docker build -t dockeradwankar/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push adwankar/multi-client
-  - docker push adwankar/multi-nginx
-  - docker push adwankar/multi-server
-  - docker push adwankar/multi-worker
+  - docker push dockeradwankar/multi-client
+  - docker push dockeradwankar/multi-nginx
+  - docker push dockeradwankar/multi-server
+  - docker push dockeradwankar/multi-worker
